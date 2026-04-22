@@ -3,274 +3,1235 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SpeakUp - AI Public Speaking Coach</title>
+  <title>SpeakUp | AI Public Speaking Coach</title>
+  <meta
+    name="description"
+    content="Practice interviews, presentations, and everyday speaking with instant AI feedback, filler-word detection, pace analysis, and side-by-side improvements."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-top: #f7f1e7;
+      --bg-bottom: #111111;
+      --surface: rgba(255, 255, 255, 0.78);
+      --surface-strong: #ffffff;
+      --ink: #151515;
+      --muted: #676159;
+      --line: rgba(21, 21, 21, 0.08);
+      --gold: #f3ad16;
+      --gold-deep: #cb8b05;
+      --gold-soft: rgba(243, 173, 22, 0.14);
+      --shadow: 0 32px 80px rgba(17, 17, 17, 0.14);
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --max: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #000;
-      color: #fff;
-      line-height: 1.7;
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(243, 173, 22, 0.24), transparent 28%),
+        radial-gradient(circle at 80% 8%, rgba(243, 173, 22, 0.18), transparent 24%),
+        linear-gradient(180deg, var(--bg-top) 0%, #f3ede2 37%, var(--bg-bottom) 37%, var(--bg-bottom) 100%);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(247, 241, 231, 0.74);
+      border-bottom: 1px solid rgba(21, 21, 21, 0.06);
+    }
+
+    .site-header .wrap {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 14px 28px rgba(17, 17, 17, 0.14);
+      background: #111;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .header-nav a:hover {
+      color: var(--ink);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--gold);
+      color: #111;
+      box-shadow: 0 16px 34px rgba(243, 173, 22, 0.3);
+    }
+
+    .button-secondary {
+      background: rgba(21, 21, 21, 0.05);
+      color: var(--ink);
+      border-color: rgba(21, 21, 21, 0.08);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(21, 21, 21, 0.06);
+      color: #403b35;
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 8px rgba(243, 173, 22, 0.12);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: -0.05em;
+      line-height: 0.98;
     }
 
     .hero {
-      background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
-      padding: 80px 24px;
-      text-align: center;
-      border-bottom: 3px solid #E8A000;
-    }
-
-    .hero h1 {
-      color: #E8A000;
-      font-size: 48px;
-      font-weight: 700;
-      letter-spacing: -1px;
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #ccc;
-      margin-bottom: 32px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-button {
-      display: inline-block;
-      background: #E8A000;
-      color: #000;
-      padding: 16px 48px;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform 0.2s;
-    }
-
-    .cta-button:hover {
-      transform: scale(1.05);
-      background: #ffa500;
-    }
-
-    .features {
-      background: #fff;
-      color: #1a1a1a;
-      padding: 80px 24px;
-    }
-
-    .features h2 {
-      text-align: center;
-      font-size: 36px;
-      margin-bottom: 48px;
-      color: #1a1a1a;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .feature-card {
-      background: #f9f9f9;
-      border: 2px solid #E8A000;
-      border-radius: 12px;
-      padding: 32px;
-      text-align: center;
-    }
-
-    .feature-card h3 {
-      color: #E8A000;
-      font-size: 20px;
-      margin-bottom: 12px;
-    }
-
-    .feature-card p {
-      color: #444;
-      font-size: 15px;
-    }
-
-    .icon {
-      font-size: 48px;
-      margin-bottom: 16px;
-    }
-
-    .pricing {
-      background: #1a1a1a;
-      padding: 80px 24px;
-      text-align: center;
-    }
-
-    .pricing h2 {
-      font-size: 36px;
-      margin-bottom: 24px;
-      color: #E8A000;
-    }
-
-    .pricing p {
-      font-size: 18px;
-      color: #ccc;
-      margin-bottom: 32px;
-    }
-
-    .price-box {
-      background: #000;
-      border: 3px solid #E8A000;
-      border-radius: 16px;
-      padding: 48px;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    .price {
-      font-size: 48px;
-      font-weight: 700;
-      color: #E8A000;
-      margin-bottom: 8px;
-    }
-
-    .price span {
-      font-size: 20px;
-      color: #888;
-    }
-
-    .price-features {
-      text-align: left;
-      margin-top: 24px;
-    }
-
-    .price-features li {
-      color: #ccc;
-      margin-bottom: 12px;
-      padding-left: 24px;
+      padding: 70px 0 84px;
       position: relative;
     }
 
-    .price-features li:before {
-      content: "✓";
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(3.4rem, 7vw, 6.3rem);
+      max-width: 10ch;
+      margin-bottom: 20px;
+    }
+
+    .hero-copy p {
+      max-width: 58ch;
+      color: #4f4a43;
+      font-size: clamp(1.04rem, 2vw, 1.18rem);
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .hero-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      color: #625d56;
+      font-size: 0.95rem;
+    }
+
+    .hero-notes span::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .metric-band {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .metric {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(21, 21, 21, 0.06);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 16px 34px rgba(21, 21, 21, 0.05);
+    }
+
+    .metric strong {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.76rem;
+      letter-spacing: -0.05em;
+      margin-bottom: 4px;
+    }
+
+    .metric span {
+      color: #615d57;
+      font-size: 0.88rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 720px;
+    }
+
+    .hero-stack {
       position: absolute;
+      inset: 0;
+    }
+
+    .shot {
+      position: absolute;
+      width: min(300px, 72vw);
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: 0 36px 80px rgba(10, 10, 10, 0.22);
+      background: #fff;
+    }
+
+    .shot img {
+      width: 100%;
+      height: auto;
+    }
+
+    .shot-home {
       left: 0;
-      color: #E8A000;
-      font-weight: 700;
+      top: 5%;
+      transform: rotate(-12deg);
+      animation: drift-one 8s ease-in-out infinite;
+    }
+
+    .shot-recording {
+      right: 2%;
+      top: 0;
+      transform: rotate(8deg);
+      animation: drift-two 8s ease-in-out infinite;
+    }
+
+    .shot-results {
+      left: 12%;
+      bottom: 0;
+      transform: rotate(4deg);
+      animation: drift-three 8s ease-in-out infinite;
+    }
+
+    @keyframes drift-one {
+      0%, 100% { transform: rotate(-12deg) translateY(0); }
+      50% { transform: rotate(-10deg) translateY(-12px); }
+    }
+
+    @keyframes drift-two {
+      0%, 100% { transform: rotate(8deg) translateY(0); }
+      50% { transform: rotate(6deg) translateY(14px); }
+    }
+
+    @keyframes drift-three {
+      0%, 100% { transform: rotate(4deg) translateY(0); }
+      50% { transform: rotate(7deg) translateY(-10px); }
+    }
+
+    .hero-card {
+      position: absolute;
+      right: 0;
+      bottom: 10%;
+      width: min(280px, 72vw);
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 26px;
+      padding: 18px;
+      box-shadow: 0 26px 60px rgba(17, 17, 17, 0.16);
+    }
+
+    .hero-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p {
+      color: #6a645d;
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .hero-tags span {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: #735100;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .section-dark {
+      padding: 96px 0;
+      background: #121212;
+      color: #fff;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2.2rem, 4.8vw, 4.1rem);
+      max-width: 11ch;
+    }
+
+    .section-heading p {
+      max-width: 45ch;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 1rem;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .story-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 30px;
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .story-image {
+      background: radial-gradient(circle at top, rgba(243, 173, 22, 0.2), transparent 55%);
+      padding: 18px 18px 0;
+      min-height: 370px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .story-image img {
+      width: min(260px, 100%);
+      border-radius: 28px 28px 0 0;
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22);
+    }
+
+    .story-copy {
+      padding: 24px;
+    }
+
+    .story-copy h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .story-copy p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .workflow {
+      padding: 96px 0;
+      background: linear-gradient(180deg, #fff8ec 0%, #f3ede3 100%);
+    }
+
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: 0.94fr 1.06fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .workflow-panel {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(21, 21, 21, 0.08);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .workflow-panel h2 {
+      font-size: clamp(2.2rem, 4.5vw, 3.9rem);
+      max-width: 11ch;
+      margin-bottom: 16px;
+    }
+
+    .workflow-panel > p {
+      color: var(--muted);
+      max-width: 48ch;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      padding: 18px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid rgba(21, 21, 21, 0.06);
+    }
+
+    .step-index {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--gold-soft);
+      color: #6b4b00;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .insight-card {
+      background: #151515;
+      color: #fff;
+      border-radius: 32px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .insight-card::before {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(243, 173, 22, 0.24), transparent 70%);
+      top: -40px;
+      right: -40px;
+      pointer-events: none;
+    }
+
+    .insight-card h3 {
+      font-size: 2rem;
+      max-width: 10ch;
+      margin-bottom: 10px;
+    }
+
+    .insight-card p {
+      color: rgba(255, 255, 255, 0.72);
+      max-width: 36ch;
+      margin-bottom: 22px;
+    }
+
+    .insight-surface {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 20px;
+    }
+
+    .insight-surface img {
+      width: min(280px, 100%);
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .bars {
+      display: grid;
+      gap: 14px;
+    }
+
+    .bar-row span {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.88);
+      margin-bottom: 8px;
+    }
+
+    .bar {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #ffe291 0%, var(--gold) 100%);
+    }
+
+    .comparison-section {
+      background: #101010;
+      color: #fff;
+      padding: 96px 0;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .comparison-copy h2 {
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      max-width: 12ch;
+      margin-bottom: 18px;
+    }
+
+    .comparison-copy p {
+      color: rgba(255, 255, 255, 0.72);
+      max-width: 48ch;
+      margin-bottom: 26px;
+    }
+
+    .comparison-points {
+      display: grid;
+      gap: 12px;
+    }
+
+    .comparison-points div {
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .comparison-points strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .comparison-visual {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 30px;
+      padding: 26px;
+    }
+
+    .comparison-demo {
+      display: grid;
+      gap: 16px;
+    }
+
+    .comparison-panel {
+      border-radius: 24px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .comparison-panel.bad {
+      background: rgba(255, 104, 104, 0.08);
+    }
+
+    .comparison-panel.good {
+      background: rgba(118, 226, 156, 0.09);
+    }
+
+    .comparison-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .comparison-panel.bad .comparison-badge {
+      background: rgba(255, 104, 104, 0.16);
+      color: #ffb6b6;
+    }
+
+    .comparison-panel.good .comparison-badge {
+      background: rgba(118, 226, 156, 0.18);
+      color: #bff6cf;
+    }
+
+    .comparison-panel p {
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .comparison-note {
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.92rem;
+    }
+
+    .testimonials {
+      background: #101010;
+      color: #fff;
+      padding: 0 0 110px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .quote {
+      padding: 24px;
+      border-radius: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .quote strong {
+      display: block;
+      margin-top: 16px;
+      font-size: 1rem;
+    }
+
+    .quote span {
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.88rem;
+    }
+
+    .cta {
+      padding: 0 0 110px;
+      background: #101010;
+    }
+
+    .cta-shell {
+      width: min(calc(100% - 40px), 1100px);
+      margin: 0 auto;
+      border-radius: 36px;
+      padding: 34px;
+      background: linear-gradient(135deg, rgba(243, 173, 22, 0.98) 0%, rgba(243, 173, 22, 0.8) 100%);
+      color: #111;
+      box-shadow: 0 34px 80px rgba(243, 173, 22, 0.18);
+    }
+
+    .cta-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cta-copy h2 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      max-width: 12ch;
+      margin-bottom: 10px;
+    }
+
+    .cta-copy p {
+      max-width: 50ch;
+      color: rgba(17, 17, 17, 0.78);
+    }
+
+    .pricing-card {
+      min-width: 320px;
+      background: rgba(17, 17, 17, 0.94);
+      color: #fff;
+      border-radius: 28px;
+      padding: 22px;
+    }
+
+    .pricing-card .mini {
+      display: block;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 3rem;
+      letter-spacing: -0.06em;
+      margin-bottom: 8px;
+    }
+
+    .price small {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .pricing-points {
+      display: grid;
+      gap: 10px;
+      margin: 20px 0;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.94rem;
+    }
+
+    .pricing-points span::before {
+      content: "•";
+      color: var(--gold);
+      margin-right: 10px;
     }
 
     footer {
-      background: #000;
-      text-align: center;
-      padding: 40px 24px;
-      border-top: 1px solid #333;
+      background: #0b0b0b;
+      color: rgba(255, 255, 255, 0.66);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    footer a {
-      color: #E8A000;
-      text-decoration: none;
-      margin: 0 16px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
+    .footer-grid {
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .footer-links {
-      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 32px; }
-      .hero p { font-size: 16px; }
-      .features h2 { font-size: 28px; }
-      .pricing h2 { font-size: 28px; }
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .section-heading,
+      .workflow-grid,
+      .comparison-grid,
+      .cta-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .metric-band,
+      .story-grid,
+      .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-visual {
+        min-height: 760px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      body {
+        background:
+          radial-gradient(circle at top left, rgba(243, 173, 22, 0.2), transparent 34%),
+          linear-gradient(180deg, var(--bg-top) 0%, #f3ede2 29%, var(--bg-bottom) 29%, var(--bg-bottom) 100%);
+      }
+
+      .site-header .wrap {
+        min-height: 72px;
+      }
+
+      .header-nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+
+      .hero-copy h1 {
+        max-width: 9ch;
+      }
+
+      .hero-visual {
+        min-height: 620px;
+        margin-top: 12px;
+      }
+
+      .shot {
+        width: min(250px, 76vw);
+      }
+
+      .shot-home {
+        left: 0;
+      }
+
+      .shot-recording {
+        right: 0;
+      }
+
+      .shot-results {
+        left: 10%;
+      }
+
+      .hero-card {
+        width: min(240px, 72vw);
+        right: 2%;
+        bottom: 2%;
+      }
+
+      .metric-band,
+      .story-grid,
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-panel,
+      .insight-card,
+      .cta-shell {
+        padding: 24px;
+      }
+
+      .pricing-card {
+        min-width: 0;
+      }
     }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="SpeakUp home">
+        <img class="brand-mark" src="assets/icon/appstore.png" alt="SpeakUp app icon" />
+        <span>SpeakUp</span>
+      </a>
 
-  <div class="hero">
-    <h1>SpeakUp</h1>
-    <p>Transform your speaking skills with AI-powered coaching. Practice anytime, get instant feedback, build confidence.</p>
-    <a href="https://apps.apple.com/app/speakup" class="cta-button">Download on App Store</a>
-    <p style="font-size: 14px; margin-top: 24px; color: #888;">First practice session free • No credit card required</p>
-  </div>
-
-  <div class="features">
-    <h2>Why SpeakUp Works</h2>
-    <div class="feature-grid">
-      
-      <div class="feature-card">
-        <div class="icon">🎤</div>
-        <h3>Instant AI Feedback</h3>
-        <p>Record your speech and get detailed analysis in 30 seconds. Know exactly what to improve.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon">📊</div>
-        <h3>Track Progress</h3>
-        <p>See your improvement over time with detailed metrics on pace, clarity, and delivery.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon">💬</div>
-        <h3>Filler Word Detection</h3>
-        <p>Eliminate "um," "uh," and "like" from your speech with precise detection and feedback.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon">✨</div>
-        <h3>See 10/10 Versions</h3>
-        <p>Get AI-generated perfect versions of your speech to learn from the best.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon">📚</div>
-        <h3>30+ Practice Topics</h3>
-        <p>From job interviews to presentations, practice scenarios that matter to you.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon">🔒</div>
-        <h3>Private & Secure</h3>
-        <p>Your recordings are processed securely and never shared. Practice without judgment.</p>
-      </div>
-
+      <nav class="header-nav" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://apps.apple.com/app/id6760455037">App Store</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <div class="pricing">
-    <h2>Simple Pricing</h2>
-    <p>One plan. Unlimited practice. Maximum improvement.</p>
-    
-    <div class="price-box">
-      <div class="price">$7.99<span>/month</span></div>
-      <p style="color: #ccc; margin-bottom: 24px;">Premium Membership</p>
-      
-      <ul class="price-features">
-        <li>Unlimited practice sessions</li>
-        <li>Instant AI analysis</li>
-        <li>Detailed feedback on every practice</li>
-        <li>Progress tracking</li>
-        <li>30+ practice topics</li>
-        <li>10/10 speech versions</li>
-        <li>Filler word detection</li>
-        <li>Cancel anytime</li>
-      </ul>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            AI public speaking coach for interviews, presentations, and everyday confidence
+          </div>
+          <h1>Speak clearly. Sound confident.</h1>
+          <p>
+            SpeakUp helps you practice real scenarios, record naturally, and get instant
+            feedback on filler words, pacing, clarity, and stronger phrasing. It turns
+            nervous practice into visible progress.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://apps.apple.com/app/id6760455037">Download on the App Store</a>
+            <a class="button button-secondary" href="#features">See how it works</a>
+          </div>
+          <div class="hero-notes" aria-label="Highlights">
+            <span>1 free practice session</span>
+            <span>30+ speaking topics</span>
+            <span>$7.99/month after trial</span>
+          </div>
 
-      <a href="https://apps.apple.com/app/speakup" class="cta-button" style="margin-top: 32px;">Start Free Trial</a>
-    </div>
-  </div>
+          <div class="metric-band" aria-label="Key metrics">
+            <div class="metric">
+              <strong>30+</strong>
+              <span>guided prompts across work, life, and creativity</span>
+            </div>
+            <div class="metric">
+              <strong>30s</strong>
+              <span>to turn a recording into usable AI feedback</span>
+            </div>
+            <div class="metric">
+              <strong>10/10</strong>
+              <span>example rewrites that show a sharper version</span>
+            </div>
+            <div class="metric">
+              <strong>1 place</strong>
+              <span>for scores, transcript, pacing, and filler insights</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-stack">
+            <figure class="shot shot-home">
+              <img src="assets/screenshots/iPhone%206.9%20-%201.0.png" alt="" />
+            </figure>
+            <figure class="shot shot-recording">
+              <img src="assets/screenshots/iPhone%206.9%20-%202.0.png" alt="" />
+            </figure>
+            <figure class="shot shot-results">
+              <img src="assets/screenshots/iPhone%206.9%20-%204.0.png" alt="" />
+            </figure>
+            <div class="hero-card">
+              <h3>Built for real speaking moments.</h3>
+              <p>
+                Practice job interviews, project updates, introductions, and everyday
+                answers with feedback that tells you exactly what to improve next.
+              </p>
+              <div class="hero-tags">
+                <span>Filler words</span>
+                <span>Pace &amp; timing</span>
+                <span>10/10 rewrites</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-dark" id="features">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <h2>More than a timer and a transcript.</h2>
+          </div>
+          <p>
+            SpeakUp is built like a real coaching loop: choose a prompt, speak your answer,
+            understand what happened, and immediately see how a stronger version could sound.
+          </p>
+        </div>
+
+        <div class="story-grid">
+          <article class="story-card">
+            <div class="story-image">
+              <img src="assets/screenshots/iPhone%206.9%20-%202.0.png" alt="SpeakUp topic selection screen" />
+            </div>
+            <div class="story-copy">
+              <h3>Practice what actually matters.</h3>
+              <p>
+                Move beyond generic prompts with topics for interviews, presentations,
+                client updates, introductions, and quick everyday speaking situations.
+              </p>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <div class="story-image">
+              <img src="assets/screenshots/iPhone%206.9%20-%206.0.png" alt="SpeakUp transcript and filler word detection screen" />
+            </div>
+            <div class="story-copy">
+              <h3>See every “um”, “like”, and “uh”.</h3>
+              <p>
+                The transcript view makes filler words visible so you can spot patterns,
+                tighten phrasing, and train cleaner answers over time.
+              </p>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <div class="story-image">
+              <img src="assets/screenshots/iPhone%206.9%20-%204.0.png" alt="SpeakUp speech results and pacing feedback screen" />
+            </div>
+            <div class="story-copy">
+              <h3>Compare your answer to a stronger one.</h3>
+              <p>
+                Feedback does not stop at a score. SpeakUp shows a sharper version of
+                your response so improvement feels concrete instead of vague.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="workflow" id="how-it-works">
+      <div class="wrap workflow-grid">
+        <div class="workflow-panel">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            How it works
+          </div>
+          <h2>Three fast steps. Real speaking progress.</h2>
+          <p>
+            The flow stays simple so practice becomes repeatable. Open the app, pick a
+            topic, record naturally, and get feedback you can immediately use.
+          </p>
+
+          <div class="steps">
+            <article class="step">
+              <div class="step-index">01</div>
+              <div>
+                <h3>Choose a scenario</h3>
+                <p>Pick a prompt that matches the moment you want to improve right now.</p>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step-index">02</div>
+              <div>
+                <h3>Record naturally</h3>
+                <p>Speak like you would in a real interview, presentation, or conversation.</p>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step-index">03</div>
+              <div>
+                <h3>Review and improve</h3>
+                <p>Use scores, transcript highlights, and rewrites to sharpen your next answer.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <div class="eyebrow" style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.88); border-color: rgba(255,255,255,0.1);">
+            <span class="eyebrow-dot"></span>
+            Detailed analysis
+          </div>
+          <h3>Feedback you can actually use.</h3>
+          <p>
+            SpeakUp breaks each answer down into clarity, pacing, filler words, and
+            structure so you always know what to work on next.
+          </p>
+
+          <div class="insight-surface">
+            <img src="assets/screenshots/iPhone%206.9%20-%204.0.png" alt="SpeakUp detailed speech results screen" />
+
+            <div class="bars">
+              <div class="bar-row">
+                <span><b>Pace &amp; timing</b><b>7.0/10</b></span>
+                <div class="bar"><i style="width: 70%;"></i></div>
+              </div>
+              <div class="bar-row">
+                <span><b>Clarity</b><b>8.0/10</b></span>
+                <div class="bar"><i style="width: 80%;"></i></div>
+              </div>
+              <div class="bar-row">
+                <span><b>Filler words</b><b>1 detected</b></span>
+                <div class="bar"><i style="width: 42%;"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="comparison-section">
+      <div class="wrap comparison-grid">
+        <div class="comparison-copy">
+          <div class="eyebrow" style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.88); border-color: rgba(255,255,255,0.1);">
+            <span class="eyebrow-dot"></span>
+            Side-by-side improvement
+          </div>
+          <h2>See what better sounds like.</h2>
+          <p>
+            SpeakUp does not just point out what went wrong. It helps you understand how
+            to say the same idea with more clarity, confidence, and stronger wording.
+          </p>
+          <div class="comparison-points">
+            <div>
+              <strong>Your version</strong>
+              Spot vague wording, hedging, and messy structure before it becomes a habit.
+            </div>
+            <div>
+              <strong>10/10 version</strong>
+              Learn from a sharper sample answer that models stronger communication.
+            </div>
+            <div>
+              <strong>Repeatable progress</strong>
+              Use the comparison to improve the next attempt instead of guessing.
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-visual">
+          <div class="comparison-demo" aria-label="Example comparison between a weaker answer and a stronger answer">
+            <article class="comparison-panel bad">
+              <div class="comparison-badge">Your version</div>
+              <p>
+                I was kind of thinking maybe we should try the new cafe because it seems
+                pretty good and not too expensive.
+              </p>
+            </article>
+            <article class="comparison-panel good">
+              <div class="comparison-badge">10/10 version</div>
+              <p>
+                I recommend the new cafe downtown because the food is excellent, the
+                atmosphere is calm, and the prices are reasonable for the quality.
+              </p>
+            </article>
+            <div class="comparison-note">
+              SpeakUp helps you replace hedging and filler-heavy phrasing with clearer,
+              more confident language you can reuse on the next try.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <h2>Built for the moments where confidence matters.</h2>
+          </div>
+          <p>
+            Whether you are preparing for an interview, trying to sound sharper in meetings,
+            or cleaning up filler words, SpeakUp keeps practice focused and useful.
+          </p>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="quote">
+            “Turn a nervous answer into something clear, structured, and confident.”
+            <strong>Job interviews</strong>
+            <span>Practice your value pitch before the real conversation.</span>
+          </article>
+          <article class="quote">
+            “Catch weak phrasing before you walk into the room.”
+            <strong>Presentations</strong>
+            <span>Sharpen delivery, pacing, and transitions before a big talk.</span>
+          </article>
+          <article class="quote">
+            “Finally see why an answer felt messy instead of just guessing.”
+            <strong>Daily communication</strong>
+            <span>Improve clarity for meetings, introductions, and spontaneous speaking.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="pricing">
+      <div class="cta-shell">
+        <div class="cta-inner">
+          <div class="cta-copy">
+            <div class="eyebrow" style="background: rgba(255,255,255,0.32); color: #111; border-color: rgba(17,17,17,0.08);">
+              <span class="eyebrow-dot"></span>
+              Simple pricing
+            </div>
+            <h2>One plan. Unlimited practice. Clearer speaking.</h2>
+            <p>
+              Start with a free practice session, then keep going with unlimited recordings,
+              full analysis, topic access, and side-by-side improvement help.
+            </p>
+          </div>
+
+          <aside class="pricing-card">
+            <span class="mini">Premium membership</span>
+            <div class="price">$7.99 <small>/ month</small></div>
+            <div class="pricing-points">
+              <span>Unlimited practice sessions</span>
+              <span>Instant AI analysis and transcripts</span>
+              <span>Filler-word detection and pacing insights</span>
+              <span>10/10 example versions and progress tracking</span>
+            </div>
+            <a class="button button-primary" href="https://apps.apple.com/app/id6760455037" style="width: 100%;">Start on the App Store</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <div class="footer-links">
-      <a href="index.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
-      <a href="support.html">Support</a>
-    </div>
-    <p style="color: #666; font-size: 13px;">© 2026 SpeakUp. All rights reserved.</p>
-  </footer>
+    <div class="wrap footer-grid">
+      <a class="brand" href="#top" aria-label="SpeakUp home">
+        <img class="brand-mark" src="assets/icon/appstore.png" alt="SpeakUp app icon" />
+        <span>SpeakUp</span>
+      </a>
 
+      <div class="footer-links">
+        <a href="index.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="support.html">Support</a>
+        <a href="https://apps.apple.com/app/id6760455037">App Store</a>
+      </div>
+
+      <div>© 2026 SpeakUp. All rights reserved.</div>
+    </div>
+  </footer>
 </body>
 </html>
