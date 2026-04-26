@@ -88,12 +88,10 @@ a {
 }
 
 .brand-mark {
-  width: 46px;
-  height: 46px;
-  border-radius: 15px;
-  background: #000000;
-  object-fit: cover;
-  box-shadow: 0 15px 34px rgba(17, 17, 17, 0.18);
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(17, 17, 17, 0.12));
 }
 
 .header-nav,
@@ -287,12 +285,12 @@ h3 {
 }
 
 .poster-right {
-  right: 0;
-  top: 120px;
-  z-index: 1;
-  width: min(292px, 34vw);
-  opacity: 0.94;
-  transform: rotate(8deg);
+  right: -1%;
+  top: 96px;
+  z-index: 2;
+  width: min(324px, 37vw);
+  opacity: 0.98;
+  transform: rotate(7deg);
 }
 
 .floating-card {
@@ -334,6 +332,39 @@ h3 {
 
 .section {
   padding: 92px 0;
+}
+
+.feature-strip {
+  padding: 28px 0;
+  background: #111111;
+}
+
+.feature-strip-shell {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.feature-stat {
+  padding: 20px 22px;
+  border-radius: 24px;
+  border: 1px solid var(--line-light);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.feature-stat strong {
+  display: block;
+  color: #ffffff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: -0.05em;
+}
+
+.feature-stat span {
+  display: block;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.66);
+  font-weight: 700;
 }
 
 .section-dark {
@@ -470,6 +501,22 @@ h3 {
   filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.32));
 }
 
+.showcase-screen {
+  display: block;
+  width: 100%;
+  height: 560px;
+  margin: 0;
+  object-fit: cover;
+}
+
+.screen-recording {
+  object-position: center 20%;
+}
+
+.screen-results {
+  object-position: center 38%;
+}
+
 .score-bars {
   margin: 0 34px 34px;
   padding: 24px;
@@ -506,6 +553,54 @@ h3 {
   height: 100%;
   border-radius: inherit;
   background: linear-gradient(90deg, #ffe99b, var(--gold));
+}
+
+.results-panel {
+  padding-bottom: 34px;
+}
+
+.results-panel .score-bars {
+  margin-top: 0;
+}
+
+.micro-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 0 34px;
+}
+
+.micro-card {
+  min-height: 104px;
+  padding: 16px;
+  border-radius: 20px;
+  border: 1px solid var(--line-light);
+  font-weight: 750;
+}
+
+.micro-card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.micro-card span {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.micro-card-bad {
+  background: rgba(255, 86, 86, 0.11);
+}
+
+.micro-card-good {
+  background: rgba(53, 199, 90, 0.12);
+}
+
+.result-copy-note {
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.06rem;
+  font-weight: 800;
 }
 
 .compare-board {
@@ -865,20 +960,13 @@ h3 {
   }
 
   .poster-right {
-    width: min(260px, 38vw);
+    right: 0;
+    width: min(286px, 41vw);
   }
 
-  .visual-grid,
+  .feature-strip-shell,
   .step-row {
-    grid-template-columns: 1fr;
-  }
-
-  .visual-card {
-    min-height: auto;
-  }
-
-  .visual-image {
-    height: 440px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .doc-nav {
@@ -901,8 +989,8 @@ h3 {
   }
 
   .brand-mark {
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
   }
 
   .hero {
@@ -930,7 +1018,11 @@ h3 {
   }
 
   .poster-right {
-    display: none;
+    display: block;
+    right: -2%;
+    top: 90px;
+    width: 48vw;
+    opacity: 0.94;
   }
 
   .floating-card {
@@ -944,6 +1036,10 @@ h3 {
     padding: 66px 0;
   }
 
+  .feature-strip {
+    padding: 20px 0;
+  }
+
   .section-heading h2,
   .split-copy h2,
   .pricing-copy h2,
@@ -951,13 +1047,14 @@ h3 {
     font-size: clamp(2.8rem, 15vw, 4.6rem);
   }
 
-  .visual-image {
-    height: 350px;
-    margin: 18px 18px 0;
+  .feature-strip-shell,
+  .micro-compare,
+  .step-row {
+    grid-template-columns: 1fr;
   }
 
-  .showcase-panel img {
-    width: 86%;
+  .showcase-screen {
+    height: 460px;
   }
 
   .compare-row,
