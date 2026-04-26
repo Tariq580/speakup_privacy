@@ -8,14 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/svg+xml" href="assets/icon/logo.svg" />
+  <link rel="icon" type="image/png" href="assets/icon/appstore.png" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="landing.html" aria-label="SpeakUp home">
-        <img class="brand-mark" src="assets/icon/logo.svg" alt="SpeakUp logo" />
+        <img class="brand-mark" src="assets/icon/appstore.png" alt="SpeakUp logo" />
         <span>SpeakUp</span>
       </a>
       <nav class="header-nav" aria-label="Primary">
@@ -69,79 +69,94 @@
       </div>
     </section>
 
-    <section class="feature-strip section-dark" id="features">
-      <div class="wrap feature-strip-shell">
-        <article class="feature-stat">
-          <strong>30+</strong>
-          <span>Topics that feel real</span>
-        </article>
-        <article class="feature-stat">
-          <strong>Record</strong>
-          <span>Just speak naturally</span>
-        </article>
-        <article class="feature-stat">
-          <strong>Results</strong>
-          <span>Clarity, pace, filler words</span>
-        </article>
-        <article class="feature-stat">
-          <strong>10/10</strong>
-          <span>See a stronger version</span>
-        </article>
+    <section class="section section-light journey-section" id="features">
+      <div class="wrap journey-grid">
+        <div class="split-copy journey-copy">
+          <div class="section-anchor" id="record" aria-hidden="true"></div>
+          <span class="pill">How it works</span>
+          <h2>Practice in a simple flow.</h2>
+          <p>Choose a prompt, speak naturally, then preview the feedback right away.</p>
+
+          <div class="process-row" aria-label="SpeakUp step by step process">
+            <article class="flow-step">
+              <span class="flow-number">01</span>
+              <strong>Choose topic</strong>
+              <small>Interviews, updates, introductions.</small>
+            </article>
+            <div class="flow-connector" aria-hidden="true"><span></span></div>
+            <article class="flow-step">
+              <span class="flow-number">02</span>
+              <strong>Record</strong>
+              <small>Just speak. No setup loop.</small>
+            </article>
+            <div class="flow-connector" aria-hidden="true"><span></span></div>
+            <article class="flow-step">
+              <span class="flow-number">03</span>
+              <strong>Preview</strong>
+              <small>Transcript, score, and stronger phrasing.</small>
+            </article>
+          </div>
+
+          <div class="mini-feature-row">
+            <span>30+ real prompts</span>
+            <span>Filler word detection</span>
+            <span>Instant AI feedback</span>
+          </div>
+        </div>
+
+        <div class="journey-visual">
+          <div class="shot-card recording-card">
+            <img class="full-shot" src="assets/screenshots/iPhone%206.9%20-%203.0.png" alt="SpeakUp recording screen" />
+            <div class="wave-card" aria-hidden="true">
+              <div class="wave-bars">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <strong>Live recording</strong>
+              <small>Speak and let SpeakUp do the analysis.</small>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section section-light" id="record">
-      <div class="wrap split">
-        <div class="split-copy">
-          <span class="pill">Recording</span>
-          <h2>Just speak. We handle the rest.</h2>
-          <p>Pick a topic, press record, and let SpeakUp turn the session into useful feedback.</p>
-          <div class="step-row">
-            <div class="step-pill">Choose topic</div>
-            <div class="step-pill">Record</div>
-            <div class="step-pill">Review</div>
+    <section class="section section-dark results-showcase" id="results">
+      <div class="wrap results-grid">
+        <div class="results-visual">
+          <div class="shot-card results-shot">
+            <img class="full-shot" src="assets/screenshots/iPhone%206.9%20-%204.0.png" alt="SpeakUp results screen" />
           </div>
         </div>
-        <div class="showcase-panel gold">
-          <img class="showcase-screen screen-recording" src="assets/screenshots/iPhone%206.9%20-%203.0.png" alt="SpeakUp recording screen" />
-        </div>
-      </div>
-    </section>
 
-    <section class="section section-dark" id="results">
-      <div class="wrap split reverse">
-        <div class="showcase-panel results-panel">
-          <img class="showcase-screen screen-results" src="assets/screenshots/iPhone%206.9%20-%204.0.png" alt="SpeakUp results with pace and clarity" />
-          <div class="score-bars" aria-label="Example SpeakUp result scores">
-            <div class="bar-row">
-              <span><b>Pace &amp; timing</b><b>7.0/10</b></span>
-              <div class="bar"><i style="width: 70%;"></i></div>
-            </div>
-            <div class="bar-row">
-              <span><b>Clarity</b><b>8.0/10</b></span>
-              <div class="bar"><i style="width: 80%;"></i></div>
-            </div>
-            <div class="bar-row">
-              <span><b>Filler words</b><b>1 detected</b></span>
-              <div class="bar"><i style="width: 42%;"></i></div>
-            </div>
-          </div>
-          <div class="micro-compare" aria-label="Side-by-side improvement preview">
-            <div class="micro-card micro-card-bad">
-              <strong>Your version</strong>
-              <span>I was kind of thinking maybe...</span>
-            </div>
-            <div class="micro-card micro-card-good">
-              <strong>10/10 version</strong>
-              <span>I recommend...</span>
-            </div>
-          </div>
-        </div>
-        <div class="split-copy">
+        <div class="split-copy results-copy">
           <span class="pill">Results</span>
           <h2>Know exactly how you did.</h2>
           <p>Clarity, pace, filler words, and a stronger version in one place.</p>
-          <div class="result-copy-note">Your words. A 10/10 version. Side by side.</div>
+
+          <div class="metric-list" aria-label="Example SpeakUp feedback">
+            <article class="metric-card">
+              <div class="metric-top"><strong>Pace &amp; timing</strong><b>7.0/10</b></div>
+              <div class="metric-bar"><i style="width: 70%;"></i></div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-top"><strong>Clarity</strong><b>8.0/10</b></div>
+              <div class="metric-bar"><i style="width: 80%;"></i></div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-top"><strong>Filler words</strong><b>1 detected</b></div>
+              <div class="metric-bar"><i style="width: 42%;"></i></div>
+            </article>
+          </div>
+
+          <div class="compare-pair" aria-label="Improvement comparison">
+            <article class="compare-block compare-block-bad">
+              <strong>Your version</strong>
+              <span>Spot weak phrasing before it becomes a habit.</span>
+            </article>
+            <article class="compare-block compare-block-good">
+              <strong>10/10 version</strong>
+              <span>See a sharper version you can reuse on the next try.</span>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -169,9 +184,9 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-inner">
+      <div class="wrap footer-inner">
       <a class="brand" href="#top" aria-label="SpeakUp home">
-        <img class="brand-mark" src="assets/icon/logo.svg" alt="SpeakUp logo" />
+        <img class="brand-mark" src="assets/icon/appstore.png" alt="SpeakUp logo" />
         <span>SpeakUp</span>
       </a>
       <div class="footer-links">
