@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SpeakUp | AI Public Speaking Coach</title>
-  <meta name="description" content="SpeakUp helps you practice speaking, record naturally, and review AI feedback with transcripts, scores, filler words, and 10/10 examples." />
+  <title>SpeakUp — AI Public Speaking Coach</title>
+  <meta name="description" content="Practice any topic, record naturally, and get instant AI feedback: a clear 0–10 score, transcript, filler words, and a 10/10 rewrite of your speech." />
+  <meta property="og:title" content="SpeakUp — AI Public Speaking Coach" />
+  <meta property="og:description" content="Practice any topic, record naturally, and get instant AI feedback. Pace, filler words, clarity, and a 10/10 rewrite — side by side." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="assets/icon/appstore.png" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
@@ -15,14 +17,14 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="landing.html" aria-label="SpeakUp home">
-        <img class="brand-mark" src="assets/icon/appstore.png" alt="SpeakUp logo" />
+        <img class="brand-mark" src="assets/icon/appstore.png" alt="" />
         <span>SpeakUp</span>
       </a>
       <nav class="header-nav" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a class="nav-store-link" href="https://apps.apple.com/app/id6760455037">App Store</a>
+        <a class="nav-cta" href="https://apps.apple.com/app/id6760455037">App Store</a>
       </nav>
     </div>
   </header>
@@ -31,216 +33,284 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <h1>SpeakUp. Speak better.</h1>
-          <p>Choose a topic, record your answer, then review the score, transcript, filler words, and a stronger version side by side.</p>
+          <span class="eyebrow">AI public speaking coach</span>
+          <h1>Speak <em>better.</em><br />Every single day.</h1>
+          <p>Pick a topic, record your answer, and get instant AI feedback. Pace, filler words, clarity — plus a 10/10 rewrite of your speech, side by side.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://apps.apple.com/app/id6760455037">Download on the App Store</a>
+            <a class="button button-primary" href="https://apps.apple.com/app/id6760455037">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.05 12.54c-.03-2.66 2.17-3.94 2.27-4-.62-.92-1.6-1.05-1.94-1.06-.83-.08-1.62.49-2.04.49-.43 0-1.07-.48-1.77-.46-.91.01-1.75.53-2.22 1.34-.94 1.64-.24 4.06.68 5.39.45.65.98 1.38 1.68 1.35.68-.03.94-.44 1.76-.44.82 0 1.05.44 1.77.42.73-.01 1.19-.66 1.64-1.31.51-.75.72-1.47.74-1.51-.02-.01-1.42-.55-1.57-2.21zM15.59 6.43c.37-.45.62-1.07.55-1.69-.53.02-1.18.36-1.56.8-.34.4-.64 1.04-.56 1.65.59.05 1.19-.3 1.57-.76z" fill="currentColor"/></svg>
+              <span>Download on the App Store</span>
+            </a>
+            <a class="button-link" href="#how">See how it works</a>
           </div>
+          <ul class="hero-meta">
+            <li><span class="dot dot-amber"></span>30+ practice topics</li>
+            <li><span class="dot dot-green"></span>Detailed AI feedback</li>
+            <li><span class="dot dot-pink"></span>Filler word detection</li>
+          </ul>
         </div>
 
-        <div class="poster-stage" aria-label="SpeakUp app screenshots">
-          <figure class="poster poster-left">
-            <img src="assets/screenshots/iPhone%206.9%20-%201.0.png" alt="SpeakUp home screen" />
-          </figure>
-          <figure class="poster poster-main">
-            <img src="assets/screenshots/iPhone%206.9%20-%204.0.png" alt="SpeakUp results screen" />
-          </figure>
-          <figure class="poster poster-right">
-            <img src="assets/screenshots/iPhone%206.9%20-%202.0.png" alt="SpeakUp topic selection screen" />
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light journey-section" id="features">
-      <div class="wrap journey-stack">
-        <div class="section-anchor" id="record" aria-hidden="true"></div>
-        <h2>Practice in a simple flow.</h2>
-
-        <div class="process-row" aria-label="SpeakUp step by step process">
-          <article class="flow-step">
-            <span class="flow-number">01</span>
-            <span class="flow-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img" focusable="false">
-                <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z" fill="none" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M8 9h8M8 12h8M8 15h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <strong>Pick a topic</strong>
-          </article>
-          <div class="flow-arrow" aria-hidden="true"></div>
-          <article class="flow-step">
-            <span class="flow-number">02</span>
-            <span class="flow-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img" focusable="false">
-                <path d="M12 4.5a2.8 2.8 0 0 1 2.8 2.8v4.6a2.8 2.8 0 1 1-5.6 0V7.3A2.8 2.8 0 0 1 12 4.5z" fill="none" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M6.5 10.8a5.5 5.5 0 0 0 11 0M12 16.3v3.2M8.8 19.5h6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <strong>Just speak</strong>
-          </article>
-          <div class="flow-arrow" aria-hidden="true"></div>
-          <article class="flow-step">
-            <span class="flow-number">03</span>
-            <span class="flow-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img" focusable="false">
-                <path d="M5 6.5A1.5 1.5 0 0 1 6.5 5h11A1.5 1.5 0 0 1 19 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 17.5z" fill="none" stroke="currentColor" stroke-width="1.8"/>
-                <path d="m8.3 12.4 2.2 2.2 5.2-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <strong>Get feedback</strong>
-          </article>
-        </div>
-
-        <div class="journey-visual journey-single-visual">
-          <div class="phone-mockup phone-mockup-recording">
-            <img class="mockup-crop mockup-recording" src="assets/screenshots/iPhone%206.9%20-%203.0.png" alt="SpeakUp recording screen" />
+        <div class="hero-stage" aria-label="SpeakUp app preview">
+          <div class="hero-glow" aria-hidden="true"></div>
+          <div class="phone phone-hero">
+            <div class="phone-screen">
+              <img src="assets/screenshots/app/home.png" alt="SpeakUp home screen with Start New Practice button and quick topic list" />
+            </div>
+          </div>
+          <div class="float-chip float-chip-tl" aria-hidden="true">
+            <strong>30+</strong>
+            <span>topics</span>
+          </div>
+          <div class="float-chip float-chip-br" aria-hidden="true">
+            <span class="float-chip-score">7.0<small>/10</small></span>
+            <span>last score</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark results-showcase" id="results">
-      <div class="wrap results-grid">
-        <div class="split-copy results-copy">
-          <span class="pill">Results</span>
+    <section class="band band-stats" aria-label="What SpeakUp gives you">
+      <div class="wrap band-stats-grid">
+        <div><strong>0–10</strong><span>Overall score</span></div>
+        <div><strong>4</strong><span>Scored dimensions</span></div>
+        <div><strong>30+</strong><span>Practice topics</span></div>
+        <div><strong>1</strong><span>Free session</span></div>
+      </div>
+    </section>
+
+    <section class="section section-flow" id="how">
+      <div class="wrap">
+        <header class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>From idle to insights in three steps.</h2>
+          <p>Open the app, talk about anything, and read your feedback. No setup, no scripts.</p>
+        </header>
+
+        <div class="flow-grid">
+          <article class="flow-card">
+            <div class="flow-meta">
+              <span class="flow-num">01</span>
+              <span class="flow-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5.5 5.5h13a1.5 1.5 0 0 1 1.5 1.5v10a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17V7a1.5 1.5 0 0 1 1.5-1.5z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 9.5h8M8 12h8M8 14.5h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </span>
+            </div>
+            <h3>Pick a topic</h3>
+            <p>Job interview, weekend story, debate opening or any custom prompt. 30+ ready to go.</p>
+            <div class="flow-preview">
+              <div class="phone phone-mini">
+                <div class="phone-screen">
+                  <img src="assets/screenshots/app/topics.png" alt="Choose Your Topic screen with Job Interview and Elevator Pitch options" />
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="flow-card">
+            <div class="flow-meta">
+              <span class="flow-num">02</span>
+              <span class="flow-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 4.5a2.8 2.8 0 0 1 2.8 2.8v4.6a2.8 2.8 0 1 1-5.6 0V7.3A2.8 2.8 0 0 1 12 4.5z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M6.5 10.8a5.5 5.5 0 0 0 11 0M12 16.3v3.2M8.8 19.5h6.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </span>
+            </div>
+            <h3>Just speak</h3>
+            <p>Tap record and talk for up to 5 minutes. Tips on pace and pauses keep you on track.</p>
+            <div class="flow-preview">
+              <div class="phone phone-mini">
+                <div class="phone-screen">
+                  <img src="assets/screenshots/app/recording.png" alt="Recording screen with microphone, timer and Start Recording button" />
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="flow-card">
+            <div class="flow-meta">
+              <span class="flow-num">03</span>
+              <span class="flow-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5 6.5A1.5 1.5 0 0 1 6.5 5h11A1.5 1.5 0 0 1 19 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 17.5z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m8.3 12.4 2.2 2.2 5.2-5.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <h3>Read your feedback</h3>
+            <p>Score, transcript, filler words, audio timeline and a 10/10 rewrite — all in one place.</p>
+            <div class="flow-preview">
+              <div class="phone phone-mini">
+                <div class="phone-screen">
+                  <img src="assets/screenshots/app/results.png" alt="Your Results screen showing a 6 out of 10 score with pace and timing breakdown" />
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-feature feature-results" id="features">
+      <div class="wrap feature-grid">
+        <div class="feature-copy">
+          <span class="eyebrow">Score</span>
           <h2>Know exactly how you did.</h2>
-
-          <div class="metric-list" aria-label="Example SpeakUp feedback">
-            <article class="metric-card" style="--metric-fill: 70%;">
-              <div class="metric-top"><strong>Pace &amp; Timing</strong><b>7.0/10</b></div>
-              <div class="metric-bar"><i></i></div>
-            </article>
-            <article class="metric-card" style="--metric-fill: 80%;">
-              <div class="metric-top"><strong>Filler Words</strong><b>8.0/10</b></div>
-              <div class="metric-bar"><i></i></div>
-            </article>
-            <article class="metric-card" style="--metric-fill: 85%;">
-              <div class="metric-top"><strong>Content Clarity</strong><b>8.5/10</b></div>
-              <div class="metric-bar"><i></i></div>
-            </article>
-            <article class="metric-card" style="--metric-fill: 75%;">
-              <div class="metric-top"><strong>Delivery Quality</strong><b>7.5/10</b></div>
-              <div class="metric-bar"><i></i></div>
-            </article>
-          </div>
+          <p>A clear 0–10 score, plus deep dives across the four dimensions that matter for any speech.</p>
+          <ul class="check-list">
+            <li><strong>Pace &amp; Timing</strong><span>Words per minute and rhythm.</span></li>
+            <li><strong>Filler Words</strong><span>Every "um", "like", "you know".</span></li>
+            <li><strong>Content Clarity</strong><span>Structure, hook, and call to action.</span></li>
+            <li><strong>Delivery Quality</strong><span>Confidence and conviction.</span></li>
+          </ul>
         </div>
-
-        <div class="results-visual">
-          <div class="results-glow" aria-hidden="true"></div>
-          <span class="results-pill results-pill-amber">Filler Words</span>
-          <span class="results-pill results-pill-white">Pace &amp; Timing</span>
-          <div class="phone-mockup phone-mockup-results">
-            <img class="mockup-crop mockup-results" src="assets/screenshots/iPhone%206.9%20-%204.0.png" alt="SpeakUp results screen" />
+        <div class="feature-visual">
+          <div class="visual-glow" aria-hidden="true"></div>
+          <div class="phone phone-feature">
+            <div class="phone-screen">
+              <img src="assets/screenshots/app/results.png" alt="Your Results screen showing a 6 out of 10 score with detailed pace and timing notes" />
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section feature-cards-section" id="feature-details">
-      <div class="wrap feature-cards-wrap">
-        <span class="pill">Features</span>
-        <h2>More than a score.</h2>
-
-        <div class="feature-card-row" aria-label="SpeakUp feature cards">
-          <article class="feature-detail-card">
-            <span class="feature-detail-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img" focusable="false">
-                <path d="M7 4.8h8.2L19 8.6v10.6A1.8 1.8 0 0 1 17.2 21H7A1.8 1.8 0 0 1 5.2 19.2V6.6A1.8 1.8 0 0 1 7 4.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                <path d="M14.8 4.8v4h4M8.5 12h7M8.5 15.5H13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <h3>Full transcript</h3>
-            <p>Every word you said, laid out clearly. You can also download the transcript to review or share later.</p>
-            <div class="feature-shot-frame feature-shot-transcript">
-              <img src="assets/screenshots/feature-transcript.png" alt="SpeakUp transcript feature" />
+    <section class="section section-feature feature-insights section-dark">
+      <div class="wrap feature-grid feature-grid-reverse">
+        <div class="feature-visual">
+          <div class="visual-glow visual-glow-dark" aria-hidden="true"></div>
+          <div class="phone phone-feature">
+            <div class="phone-screen">
+              <img src="assets/screenshots/app/insights.png" alt="Detailed Insights screen with filler-word-highlighted transcript and audio waveform" />
             </div>
-          </article>
-
-          <article class="feature-detail-card">
-            <span class="feature-detail-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img" focusable="false">
-                <path d="m12 4.5 1.9 3.9 4.3.6-3.1 3 .7 4.3L12 14.2l-3.8 2 1-4.3-3.2-3 4.4-.6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <h3>10/10 version</h3>
-            <p>See what your speech looks like rewritten at its best. Compare your version side by side with a stronger one.</p>
-            <div class="feature-shot-frame feature-shot-compare">
-              <img src="assets/screenshots/feature-compare.png" alt="SpeakUp 10 out of 10 comparison feature" />
-            </div>
-          </article>
-
-          <article class="feature-detail-card">
-            <span class="feature-detail-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img" focusable="false">
-                <path d="M4.8 18.5h14.4M7.5 16V9.5M11.3 16V6.5M15 16v-4.2M18.8 16V8.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <h3>Detailed insights</h3>
-            <p>Speech timeline, audio waveform with filler word markers, and pause detection all in one view.</p>
-            <div class="feature-shot-frame feature-shot-insights">
-              <img src="assets/screenshots/feature-insights.png" alt="SpeakUp detailed insights feature" />
-            </div>
-          </article>
+          </div>
+        </div>
+        <div class="feature-copy">
+          <span class="eyebrow eyebrow-light">Detailed insights</span>
+          <h2>Spot every "um" and "like".</h2>
+          <p>A highlighted transcript, audio waveform with red filler markers, and a speech timeline — all in one view.</p>
+          <div class="insight-tags" aria-hidden="true">
+            <span class="tag tag-filler">so</span>
+            <span class="tag tag-regular">I</span>
+            <span class="tag tag-regular">really</span>
+            <span class="tag tag-regular">think</span>
+            <span class="tag tag-filler">like</span>
+            <span class="tag tag-regular">working</span>
+            <span class="tag tag-filler">you</span>
+            <span class="tag tag-filler">know</span>
+            <span class="tag tag-filler">actually</span>
+            <span class="tag tag-regular">pretty</span>
+            <span class="tag tag-regular">great</span>
+          </div>
+          <p class="caption">Filler words shown in <span class="caption-pill caption-pill-filler">red</span>. Regular words in <span class="caption-pill caption-pill-regular">cream</span>.</p>
         </div>
       </div>
     </section>
 
-    <section class="pricing-section" id="pricing">
-      <div class="wrap pricing-card">
-        <div class="pricing-copy">
-          <span class="pill">Pricing</span>
+    <section class="section section-feature feature-ten">
+      <div class="wrap feature-grid">
+        <div class="feature-copy">
+          <span class="eyebrow">10/10 version</span>
+          <h2>See what excellence sounds like.</h2>
+          <p>Your speech, rewritten side-by-side with a stronger 10/10 version. Plus vocabulary upgrades and sentence-by-sentence improvements.</p>
+          <div class="compare-mini" aria-hidden="true">
+            <div class="compare-card compare-bad">
+              <span class="compare-label"><i>×</i>Your version</span>
+              <p>"so like I was thinking that um you should you know maybe try…"</p>
+            </div>
+            <div class="compare-card compare-good">
+              <span class="compare-label"><i>✓</i>10/10 version</span>
+              <p>"I recommend checking out that new restaurant downtown. The food is exceptional…"</p>
+            </div>
+          </div>
+        </div>
+        <div class="feature-visual">
+          <div class="visual-glow" aria-hidden="true"></div>
+          <div class="phone phone-feature">
+            <div class="phone-screen">
+              <img src="assets/screenshots/app/ten-of-ten.png" alt="10 out of 10 Version comparison showing your version next to a stronger rewrite" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap cta-inner">
+        <div>
+          <h2>Ready to speak better?</h2>
+          <p>Try your first session free. Then unlock everything for $7.99 a month — cancel anytime.</p>
+        </div>
+        <a class="button button-light" href="https://apps.apple.com/app/id6760455037">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 12.54c-.03-2.66 2.17-3.94 2.27-4-.62-.92-1.6-1.05-1.94-1.06-.83-.08-1.62.49-2.04.49-.43 0-1.07-.48-1.77-.46-.91.01-1.75.53-2.22 1.34-.94 1.64-.24 4.06.68 5.39.45.65.98 1.38 1.68 1.35.68-.03.94-.44 1.76-.44.82 0 1.05.44 1.77.42.73-.01 1.19-.66 1.64-1.31.51-.75.72-1.47.74-1.51-.02-.01-1.42-.55-1.57-2.21zM15.59 6.43c.37-.45.62-1.07.55-1.69-.53.02-1.18.36-1.56.8-.34.4-.64 1.04-.56 1.65.59.05 1.19-.3 1.57-.76z" fill="currentColor"/></svg>
+          <span>Download on the App Store</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section section-pricing" id="pricing">
+      <div class="wrap pricing-wrap">
+        <header class="section-head section-head-center">
+          <span class="eyebrow">Pricing</span>
           <h2>One simple plan.</h2>
-          <p class="pricing-subtitle">Start free. Unlock everything for $7.99/month.</p>
-        </div>
-        <aside class="price-box">
-          <strong>SpeakUp Premium</strong>
-          <div class="price">$7.99 <small>/ month</small></div>
-          <div class="price-list">
-            <span>Unlimited practice sessions</span>
-            <span>Instant AI analysis</span>
-            <span>Transcripts and filler words</span>
-            <span>10/10 example versions</span>
+          <p>Start with a free session. Upgrade for unlimited practice.</p>
+        </header>
+
+        <div class="pricing-card">
+          <div class="pricing-card-top">
+            <span class="pricing-label">SpeakUp Premium</span>
+            <div class="pricing-price">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount">7.99</span>
+              <span class="pricing-period">/ month</span>
+            </div>
+            <p class="pricing-note">1 free session for new users. Cancel anytime in iPhone Settings.</p>
           </div>
-          <a class="button button-primary" href="https://apps.apple.com/app/id6760455037" style="width: 100%;">Start on the App Store</a>
-        </aside>
+          <ul class="pricing-features">
+            <li>Unlimited practice sessions</li>
+            <li>Instant AI scoring across 4 dimensions</li>
+            <li>Highlighted transcripts &amp; audio waveform</li>
+            <li>10/10 rewrite for every recording</li>
+            <li>Vocabulary &amp; sentence structure upgrades</li>
+            <li>Practice history and progress tracking</li>
+          </ul>
+          <a class="button button-primary button-block" href="https://apps.apple.com/app/id6760455037">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 12.54c-.03-2.66 2.17-3.94 2.27-4-.62-.92-1.6-1.05-1.94-1.06-.83-.08-1.62.49-2.04.49-.43 0-1.07-.48-1.77-.46-.91.01-1.75.53-2.22 1.34-.94 1.64-.24 4.06.68 5.39.45.65.98 1.38 1.68 1.35.68-.03.94-.44 1.76-.44.82 0 1.05.44 1.77.42.73-.01 1.19-.66 1.64-1.31.51-.75.72-1.47.74-1.51-.02-.01-1.42-.55-1.57-2.21zM15.59 6.43c.37-.45.62-1.07.55-1.69-.53.02-1.18.36-1.56.8-.34.4-.64 1.04-.56 1.65.59.05 1.19-.3 1.57-.76z" fill="currentColor"/></svg>
+            <span>Get SpeakUp on the App Store</span>
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-      <div class="wrap footer-inner">
+    <div class="wrap footer-inner">
       <a class="brand" href="#top" aria-label="SpeakUp home">
-        <img class="brand-mark" src="assets/icon/appstore.png" alt="SpeakUp logo" />
+        <img class="brand-mark" src="assets/icon/appstore.png" alt="" />
         <span>SpeakUp</span>
       </a>
-      <div class="footer-links">
+      <nav class="footer-links" aria-label="Footer">
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
         <a href="support.html">Support</a>
         <a href="https://apps.apple.com/app/id6760455037">App Store</a>
-      </div>
-      <span>© 2026 SpeakUp.</span>
+      </nav>
+      <span class="footer-copyright">© <span id="year">2026</span> SpeakUp</span>
     </div>
   </footer>
+
   <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
     (() => {
-      const resultsSection = document.querySelector(".results-showcase");
-      if (!resultsSection) return;
-      if (!("IntersectionObserver" in window)) {
-        resultsSection.classList.add("in-view");
+      const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduceMotion || !("IntersectionObserver" in window)) {
         return;
       }
-
-      const observer = new IntersectionObserver((entries) => {
+      document.body.classList.add("js-ready");
+      const targets = document.querySelectorAll(".flow-card, .feature-grid, .pricing-card, .band-stats-grid > div, .hero-stage, .hero-copy");
+      const io = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          resultsSection.classList.add("in-view");
-          observer.disconnect();
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            io.unobserve(entry.target);
+          }
         });
-      }, { threshold: 0.28 });
-
-      observer.observe(resultsSection);
+      }, { threshold: 0.12, rootMargin: "0px 0px -10% 0px" });
+      targets.forEach((el) => io.observe(el));
     })();
   </script>
 </body>
