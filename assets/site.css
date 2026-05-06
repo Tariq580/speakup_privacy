@@ -330,41 +330,14 @@ p { color: var(--muted); }
   flex-wrap: wrap;
   align-items: center;
   gap: 18px;
-  margin-bottom: 36px;
 }
-
-.hero-meta {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--muted);
-}
-
-.hero-meta li {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-}
-
-.dot-amber { background: var(--gold); box-shadow: 0 0 0 4px rgba(243, 173, 22, 0.18); }
-.dot-green { background: var(--green); box-shadow: 0 0 0 4px rgba(53, 199, 90, 0.18); }
-.dot-pink  { background: var(--pink);  box-shadow: 0 0 0 4px rgba(255, 122, 138, 0.2); }
 
 .hero-stage {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 640px;
+  min-height: 560px;
   transition: opacity 800ms 120ms var(--easing), transform 800ms 120ms var(--easing);
 }
 
@@ -380,78 +353,21 @@ p { color: var(--muted); }
 
 .hero-glow {
   position: absolute;
-  width: 480px;
-  height: 480px;
+  width: 460px;
+  height: 460px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(243, 173, 22, 0.34), transparent 65%);
   filter: blur(8px);
   z-index: 0;
 }
 
-.float-chip {
-  position: absolute;
-  z-index: 3;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 8px;
-  padding: 14px 18px;
-  border-radius: 18px;
-  background: var(--paper);
-  box-shadow: var(--shadow-md);
-  font-family: "Space Grotesk", sans-serif;
-  animation: float-soft 6s ease-in-out infinite;
-}
-
-.float-chip strong {
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  color: var(--ink);
-}
-
-.float-chip span {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--muted);
-}
-
-.float-chip-tl {
-  top: 6%;
-  left: -10px;
-  animation-delay: 0s;
-}
-
-.float-chip-br {
-  bottom: 8%;
-  right: -16px;
-  background: var(--ink);
-  color: #fff;
-  animation-delay: 1.5s;
-}
-
-.float-chip-br span {
-  color: rgba(255, 255, 255, 0.66);
-}
-
-.float-chip-score {
-  display: inline-flex;
-  align-items: baseline;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1.7rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  color: var(--gold-soft);
-}
-
-.float-chip-score small {
-  font-size: 0.85rem;
-  color: rgba(255, 209, 58, 0.7);
-  margin-left: 2px;
+.phone-hero {
+  animation: float-soft 8s ease-in-out infinite;
 }
 
 @keyframes float-soft {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-10px); }
 }
 
 /* ============================================================
@@ -500,14 +416,15 @@ p { color: var(--muted); }
   border-radius: inherit;
 }
 
-.phone-hero { width: min(360px, 88%); }
-.phone-feature { width: min(340px, 88%); }
-.phone-mini {
-  width: min(220px, 100%);
-  border-radius: 32px;
-  padding: 6px;
+/* Caps tuned to the 471px source width — at 2× retina, ≤280 CSS px keeps
+   the screenshots crisp instead of upscaled and blurry. */
+.phone-hero { width: min(280px, 84%); }
+.phone-feature { width: min(260px, 80%); }
+
+.phone img,
+.phone-screen img {
+  image-rendering: -webkit-optimize-contrast;
 }
-.phone-mini .phone-screen { border-radius: 26px; }
 
 /* ============================================================
    Stats band
@@ -595,24 +512,39 @@ p { color: var(--muted); }
   background: var(--cream);
 }
 
-/* Flow cards */
+/* Flow cards — text on top, phone peeking from the bottom of the card.
+   The card is a fixed height with overflow:hidden, and a fade gradient
+   blends the phone into the card so the cut never looks abrupt. */
 .flow-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 18px;
 }
 
 .flow-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 28px 28px 0;
+  padding: 32px 32px 0;
   background: var(--paper);
   border: 1px solid var(--line);
-  border-radius: var(--r-xl);
+  border-radius: var(--r-lg);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
-  transition: opacity 700ms var(--easing), transform 700ms var(--easing), box-shadow 220ms var(--easing);
+  height: 480px;
+  transition: opacity 700ms var(--easing), transform 700ms var(--easing), box-shadow 220ms var(--easing), border-color 220ms var(--easing);
+}
+
+/* Soft fade at the bottom — visually dissolves the phone into the card
+   so the natural cut from overflow:hidden never looks abrupt. */
+.flow-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 110px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--paper) 65%);
+  pointer-events: none;
+  z-index: 3;
 }
 
 .js-ready .flow-card {
@@ -627,27 +559,29 @@ p { color: var(--muted); }
 
 .flow-card:hover {
   box-shadow: var(--shadow-md);
+  border-color: var(--gold-tint);
+}
+
+.flow-card:hover .phone-mini {
+  transform: translateY(-8px);
 }
 
 .flow-card:nth-child(2) { transition-delay: 100ms; }
 .flow-card:nth-child(3) { transition-delay: 200ms; }
 
-.flow-meta {
+.flow-card-top {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .flow-num {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 1.1rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: var(--gold-deep);
-  background: rgba(243, 173, 22, 0.14);
-  padding: 6px 12px;
-  border-radius: 999px;
 }
 
 .flow-icon {
@@ -656,46 +590,37 @@ p { color: var(--muted); }
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 14px;
+  border-radius: 12px;
   background: var(--ink);
   color: #fff;
 }
 
 .flow-icon svg { width: 22px; height: 22px; }
 
-.flow-card h3 { margin-bottom: 8px; }
+.flow-card h3 {
+  margin-top: 2px;
+  font-size: 1.3rem;
+}
 
-.flow-card > p {
-  margin-bottom: 28px;
+.flow-card-top > p {
   font-size: 0.98rem;
   color: var(--muted);
+  font-weight: 500;
 }
 
 .flow-preview {
-  margin: 24px -28px -28px;
-  padding: 28px 28px 28px;
-  background: linear-gradient(180deg, transparent, var(--paper-warm) 60%);
+  position: relative;
+  margin-top: 18px;
+  flex: 1;
   display: flex;
+  align-items: flex-end;
   justify-content: center;
-  border-top: 1px solid var(--line);
+  z-index: 1;
 }
 
-.flow-preview .phone-mini {
-  width: min(180px, 100%);
-}
-
-.flow-preview .phone-screen {
-  /* show only the top portion of the screen (status bar + main content) */
-  aspect-ratio: 9 / 12;
-}
-
-.flow-preview .phone-screen img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  object-position: top;
+.phone-mini {
+  width: 175px;
+  transition: transform 500ms var(--easing);
 }
 
 /* ============================================================
@@ -753,44 +678,37 @@ p { color: var(--muted); }
 .check-list {
   list-style: none;
   display: grid;
-  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .check-list li {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: baseline;
-  gap: 4px 14px;
-  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
   background: var(--paper);
-  border-radius: 18px;
+  border-radius: 14px;
   border: 1px solid var(--line);
   box-shadow: var(--shadow-sm);
 }
 
 .check-list li::before {
   content: "";
-  grid-row: span 2;
-  width: 10px;
-  height: 10px;
-  margin-top: 8px;
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
   border-radius: 999px;
   background: var(--gold);
-  box-shadow: 0 0 0 5px rgba(243, 173, 22, 0.18);
+  box-shadow: 0 0 0 4px rgba(243, 173, 22, 0.18);
 }
 
 .check-list strong {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--ink);
-}
-
-.check-list span {
-  font-size: 0.95rem;
-  color: var(--muted);
-  font-weight: 500;
 }
 
 .feature-visual {
@@ -849,27 +767,6 @@ p { color: var(--muted); }
   border: 1px solid rgba(255, 122, 138, 0.28);
   font-weight: 600;
 }
-
-.caption {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7) !important;
-  font-weight: 500;
-}
-
-.caption-pill {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-size: 0.82rem;
-  font-weight: 600;
-}
-
-.caption-pill-filler { background: rgba(255, 122, 138, 0.22); color: #ff9caa; }
-.caption-pill-regular { background: rgba(255, 245, 200, 0.16); color: #fff5c8; }
 
 /* Compare cards */
 .compare-mini {
@@ -1330,6 +1227,12 @@ p { color: var(--muted); }
     gap: 18px;
   }
 
+  .flow-card {
+    height: 460px;
+  }
+
+  .phone-mini { width: 180px; }
+
   .feature-grid,
   .feature-grid-reverse {
     grid-template-columns: 1fr;
@@ -1367,23 +1270,14 @@ p { color: var(--muted); }
   .wrap { width: min(calc(100% - 28px), var(--max)); }
   .hero-copy h1 { font-size: clamp(2.8rem, 11vw, 4rem); }
   .hero-stage { min-height: auto; }
-  .phone-hero { width: min(280px, 80%); }
-  .phone-feature { width: min(280px, 86%); }
-  .float-chip-tl {
-    top: -4px;
-    left: 4px;
-    padding: 10px 14px;
-  }
-  .float-chip-tl strong { font-size: 1.3rem; }
-  .float-chip-br {
-    bottom: -8px;
-    right: 4px;
-    padding: 10px 14px;
-  }
-  .float-chip-score { font-size: 1.4rem; }
+  .phone-hero { width: min(260px, 80%); }
+  .phone-feature { width: min(240px, 80%); }
   .feature-visual { min-height: auto; }
   .visual-glow { width: 280px; height: 280px; }
   .hero-glow { width: 320px; height: 320px; }
+  .flow-card { height: 440px; padding: 28px 24px 0; }
+  .phone-mini { width: 170px; }
+  .check-list { grid-template-columns: 1fr; }
   .section { padding: 64px 0; }
   .section-feature { padding: 64px 0; }
   .pricing-amount { font-size: 3.4rem; }

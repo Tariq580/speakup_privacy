@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="assets/icon/appstore.png" />
-  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="stylesheet" href="assets/site.css?v=4" />
 </head>
 <body>
   <header class="site-header">
@@ -33,9 +33,9 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">AI public speaking coach</span>
-          <h1>Speak <em>better.</em><br />Every single day.</h1>
-          <p>Pick a topic, record your answer, and get instant AI feedback. Pace, filler words, clarity — plus a 10/10 rewrite of your speech, side by side.</p>
+          <span class="eyebrow">AI speaking coach</span>
+          <h1>Speak <em>better.</em><br />Every day.</h1>
+          <p>Record any speech. Get instant AI feedback in 4 dimensions, plus a 10/10 rewrite.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://apps.apple.com/app/id6760455037">
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.05 12.54c-.03-2.66 2.17-3.94 2.27-4-.62-.92-1.6-1.05-1.94-1.06-.83-.08-1.62.49-2.04.49-.43 0-1.07-.48-1.77-.46-.91.01-1.75.53-2.22 1.34-.94 1.64-.24 4.06.68 5.39.45.65.98 1.38 1.68 1.35.68-.03.94-.44 1.76-.44.82 0 1.05.44 1.77.42.73-.01 1.19-.66 1.64-1.31.51-.75.72-1.47.74-1.51-.02-.01-1.42-.55-1.57-2.21zM15.59 6.43c.37-.45.62-1.07.55-1.69-.53.02-1.18.36-1.56.8-.34.4-.64 1.04-.56 1.65.59.05 1.19-.3 1.57-.76z" fill="currentColor"/></svg>
@@ -43,11 +43,6 @@
             </a>
             <a class="button-link" href="#how">See how it works</a>
           </div>
-          <ul class="hero-meta">
-            <li><span class="dot dot-amber"></span>30+ practice topics</li>
-            <li><span class="dot dot-green"></span>Detailed AI feedback</li>
-            <li><span class="dot dot-pink"></span>Filler word detection</li>
-          </ul>
         </div>
 
         <div class="hero-stage" aria-label="SpeakUp app preview">
@@ -57,85 +52,76 @@
               <img src="assets/screenshots/app/home.png" alt="SpeakUp home screen with Start New Practice button and quick topic list" />
             </div>
           </div>
-          <div class="float-chip float-chip-tl" aria-hidden="true">
-            <strong>30+</strong>
-            <span>topics</span>
-          </div>
-          <div class="float-chip float-chip-br" aria-hidden="true">
-            <span class="float-chip-score">7.0<small>/10</small></span>
-            <span>last score</span>
-          </div>
         </div>
       </div>
     </section>
 
     <section class="band band-stats" aria-label="What SpeakUp gives you">
       <div class="wrap band-stats-grid">
-        <div><strong>0–10</strong><span>Overall score</span></div>
-        <div><strong>4</strong><span>Scored dimensions</span></div>
-        <div><strong>30+</strong><span>Practice topics</span></div>
+        <div><strong>0–10</strong><span>Score</span></div>
+        <div><strong>4</strong><span>Dimensions</span></div>
+        <div><strong>30+</strong><span>Topics</span></div>
         <div><strong>1</strong><span>Free session</span></div>
       </div>
     </section>
 
     <section class="section section-flow" id="how">
       <div class="wrap">
-        <header class="section-head">
+        <header class="section-head section-head-center">
           <span class="eyebrow">How it works</span>
-          <h2>From idle to insights in three steps.</h2>
-          <p>Open the app, talk about anything, and read your feedback. No setup, no scripts.</p>
+          <h2>Three steps. No setup.</h2>
         </header>
 
         <div class="flow-grid">
           <article class="flow-card">
-            <div class="flow-meta">
+            <div class="flow-card-top">
               <span class="flow-num">01</span>
               <span class="flow-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M5.5 5.5h13a1.5 1.5 0 0 1 1.5 1.5v10a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17V7a1.5 1.5 0 0 1 1.5-1.5z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 9.5h8M8 12h8M8 14.5h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
               </span>
+              <h3>Pick a topic</h3>
+              <p>30+ prompts or your own.</p>
             </div>
-            <h3>Pick a topic</h3>
-            <p>Job interview, weekend story, debate opening or any custom prompt. 30+ ready to go.</p>
             <div class="flow-preview">
               <div class="phone phone-mini">
                 <div class="phone-screen">
-                  <img src="assets/screenshots/app/topics.png" alt="Choose Your Topic screen with Job Interview and Elevator Pitch options" />
+                  <img src="assets/screenshots/app/topics.png" alt="Choose Your Topic screen" />
                 </div>
               </div>
             </div>
           </article>
 
           <article class="flow-card">
-            <div class="flow-meta">
+            <div class="flow-card-top">
               <span class="flow-num">02</span>
               <span class="flow-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M12 4.5a2.8 2.8 0 0 1 2.8 2.8v4.6a2.8 2.8 0 1 1-5.6 0V7.3A2.8 2.8 0 0 1 12 4.5z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M6.5 10.8a5.5 5.5 0 0 0 11 0M12 16.3v3.2M8.8 19.5h6.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
               </span>
+              <h3>Just speak</h3>
+              <p>Up to 5 minutes, no script.</p>
             </div>
-            <h3>Just speak</h3>
-            <p>Tap record and talk for up to 5 minutes. Tips on pace and pauses keep you on track.</p>
             <div class="flow-preview">
               <div class="phone phone-mini">
                 <div class="phone-screen">
-                  <img src="assets/screenshots/app/recording.png" alt="Recording screen with microphone, timer and Start Recording button" />
+                  <img src="assets/screenshots/app/recording.png" alt="Recording screen" />
                 </div>
               </div>
             </div>
           </article>
 
           <article class="flow-card">
-            <div class="flow-meta">
+            <div class="flow-card-top">
               <span class="flow-num">03</span>
               <span class="flow-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M5 6.5A1.5 1.5 0 0 1 6.5 5h11A1.5 1.5 0 0 1 19 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 17.5z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m8.3 12.4 2.2 2.2 5.2-5.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
+              <h3>Read feedback</h3>
+              <p>Score, transcript, 10/10 rewrite.</p>
             </div>
-            <h3>Read your feedback</h3>
-            <p>Score, transcript, filler words, audio timeline and a 10/10 rewrite — all in one place.</p>
             <div class="flow-preview">
               <div class="phone phone-mini">
                 <div class="phone-screen">
-                  <img src="assets/screenshots/app/results.png" alt="Your Results screen showing a 6 out of 10 score with pace and timing breakdown" />
+                  <img src="assets/screenshots/app/results.png" alt="Your Results screen" />
                 </div>
               </div>
             </div>
@@ -149,12 +135,12 @@
         <div class="feature-copy">
           <span class="eyebrow">Score</span>
           <h2>Know exactly how you did.</h2>
-          <p>A clear 0–10 score, plus deep dives across the four dimensions that matter for any speech.</p>
+          <p>A clear 0–10 score across four speech dimensions.</p>
           <ul class="check-list">
-            <li><strong>Pace &amp; Timing</strong><span>Words per minute and rhythm.</span></li>
-            <li><strong>Filler Words</strong><span>Every "um", "like", "you know".</span></li>
-            <li><strong>Content Clarity</strong><span>Structure, hook, and call to action.</span></li>
-            <li><strong>Delivery Quality</strong><span>Confidence and conviction.</span></li>
+            <li><strong>Pace &amp; Timing</strong></li>
+            <li><strong>Filler Words</strong></li>
+            <li><strong>Content Clarity</strong></li>
+            <li><strong>Delivery Quality</strong></li>
           </ul>
         </div>
         <div class="feature-visual">
@@ -179,9 +165,9 @@
           </div>
         </div>
         <div class="feature-copy">
-          <span class="eyebrow eyebrow-light">Detailed insights</span>
-          <h2>Spot every "um" and "like".</h2>
-          <p>A highlighted transcript, audio waveform with red filler markers, and a speech timeline — all in one view.</p>
+          <span class="eyebrow eyebrow-light">Insights</span>
+          <h2>Spot every "um".</h2>
+          <p>Highlighted transcript, waveform, and pause detection.</p>
           <div class="insight-tags" aria-hidden="true">
             <span class="tag tag-filler">so</span>
             <span class="tag tag-regular">I</span>
@@ -195,7 +181,6 @@
             <span class="tag tag-regular">pretty</span>
             <span class="tag tag-regular">great</span>
           </div>
-          <p class="caption">Filler words shown in <span class="caption-pill caption-pill-filler">red</span>. Regular words in <span class="caption-pill caption-pill-regular">cream</span>.</p>
         </div>
       </div>
     </section>
@@ -205,15 +190,15 @@
         <div class="feature-copy">
           <span class="eyebrow">10/10 version</span>
           <h2>See what excellence sounds like.</h2>
-          <p>Your speech, rewritten side-by-side with a stronger 10/10 version. Plus vocabulary upgrades and sentence-by-sentence improvements.</p>
+          <p>Your speech rewritten, side by side.</p>
           <div class="compare-mini" aria-hidden="true">
             <div class="compare-card compare-bad">
               <span class="compare-label"><i>×</i>Your version</span>
-              <p>"so like I was thinking that um you should you know maybe try…"</p>
+              <p>"so like I was thinking that um you should…"</p>
             </div>
             <div class="compare-card compare-good">
               <span class="compare-label"><i>✓</i>10/10 version</span>
-              <p>"I recommend checking out that new restaurant downtown. The food is exceptional…"</p>
+              <p>"I recommend checking out that new restaurant. The food is exceptional…"</p>
             </div>
           </div>
         </div>
@@ -232,7 +217,7 @@
       <div class="wrap cta-inner">
         <div>
           <h2>Ready to speak better?</h2>
-          <p>Try your first session free. Then unlock everything for $7.99 a month — cancel anytime.</p>
+          <p>First session free. $7.99/mo after. Cancel anytime.</p>
         </div>
         <a class="button button-light" href="https://apps.apple.com/app/id6760455037">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 12.54c-.03-2.66 2.17-3.94 2.27-4-.62-.92-1.6-1.05-1.94-1.06-.83-.08-1.62.49-2.04.49-.43 0-1.07-.48-1.77-.46-.91.01-1.75.53-2.22 1.34-.94 1.64-.24 4.06.68 5.39.45.65.98 1.38 1.68 1.35.68-.03.94-.44 1.76-.44.82 0 1.05.44 1.77.42.73-.01 1.19-.66 1.64-1.31.51-.75.72-1.47.74-1.51-.02-.01-1.42-.55-1.57-2.21zM15.59 6.43c.37-.45.62-1.07.55-1.69-.53.02-1.18.36-1.56.8-.34.4-.64 1.04-.56 1.65.59.05 1.19-.3 1.57-.76z" fill="currentColor"/></svg>
@@ -246,7 +231,6 @@
         <header class="section-head section-head-center">
           <span class="eyebrow">Pricing</span>
           <h2>One simple plan.</h2>
-          <p>Start with a free session. Upgrade for unlimited practice.</p>
         </header>
 
         <div class="pricing-card">
@@ -257,19 +241,18 @@
               <span class="pricing-amount">7.99</span>
               <span class="pricing-period">/ month</span>
             </div>
-            <p class="pricing-note">1 free session for new users. Cancel anytime in iPhone Settings.</p>
+            <p class="pricing-note">1 free session. Cancel anytime.</p>
           </div>
           <ul class="pricing-features">
             <li>Unlimited practice sessions</li>
-            <li>Instant AI scoring across 4 dimensions</li>
-            <li>Highlighted transcripts &amp; audio waveform</li>
+            <li>AI scoring across 4 dimensions</li>
+            <li>Highlighted transcript &amp; waveform</li>
             <li>10/10 rewrite for every recording</li>
-            <li>Vocabulary &amp; sentence structure upgrades</li>
-            <li>Practice history and progress tracking</li>
+            <li>Progress &amp; history tracking</li>
           </ul>
           <a class="button button-primary button-block" href="https://apps.apple.com/app/id6760455037">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 12.54c-.03-2.66 2.17-3.94 2.27-4-.62-.92-1.6-1.05-1.94-1.06-.83-.08-1.62.49-2.04.49-.43 0-1.07-.48-1.77-.46-.91.01-1.75.53-2.22 1.34-.94 1.64-.24 4.06.68 5.39.45.65.98 1.38 1.68 1.35.68-.03.94-.44 1.76-.44.82 0 1.05.44 1.77.42.73-.01 1.19-.66 1.64-1.31.51-.75.72-1.47.74-1.51-.02-.01-1.42-.55-1.57-2.21zM15.59 6.43c.37-.45.62-1.07.55-1.69-.53.02-1.18.36-1.56.8-.34.4-.64 1.04-.56 1.65.59.05 1.19-.3 1.57-.76z" fill="currentColor"/></svg>
-            <span>Get SpeakUp on the App Store</span>
+            <span>Get SpeakUp</span>
           </a>
         </div>
       </div>
